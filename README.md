@@ -13,6 +13,6 @@ Get Started:
 
 
 Branches:
-main - deliverable code, no commits only merges
-develop - working branch, make feature branches off of here
-feature - create local feature branch, commit and push to remote develop
+  main - deliverable code, no commits only merges
+  develop - working branch, make feature branches off of here
+  feature - create local feature branch, commit and push to remote develop
