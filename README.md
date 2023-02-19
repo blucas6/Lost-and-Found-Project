@@ -15,4 +15,4 @@ Get Started:
 Branches:
 1. main - deliverable code, no commits only merges
 2. develop - working branch, make feature branches off of here
-3. feature - create local feature branch, commit and push to remote develop
+3. feature - create local feature branch, add/commit locally, if collaborating push changes to remote feature, when done merge into remote develop
