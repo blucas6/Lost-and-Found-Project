@@ -1,0 +1,50 @@
+*{
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body   
+{  
+  height: 125vh;  
+  margin-top: 0px;  
+  padding: 0px;  
+  background-size: cover;  
+  font-family: montserrat;  
+}  
+
+nav {  
+  background-color: rgb(192, 0, 0);  
+  height:  80px;
+  width: 100%;
+}  
+label.logo {
+  color: white;
+  font-size: 20px;
+  line-height: 80px;
+  padding: 0 20px;
+  font-weight: bold;
+}
+nav ul {
+  float: right;
+  margin-right: 20px;
+}
+nav ul li {
+  display:  inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+nav ul li button.navb {
+  background-color: rgb(197, 8, 8);
+  color:  white;
+  font-size: 17px;
+  padding: 7px 13px;
+  border-radius:  3px;
+  text-transform: uppercase;
+}
+button.navb:active, button.navb:hover {
+  background-color: rgb(255, 110, 110);
+  transition: 0.5s;
+}
