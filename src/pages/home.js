@@ -1,7 +1,10 @@
+import stevenslogo from '../images/StevensLogo.png'
+
 export default function HomePage() {
     return (
         <div>
-            <h1>Home</h1>
+            <p>Welcome</p>
+            <img src={stevenslogo} alt="logo" className='stevenslogo'/>
         </div>
     )
 }

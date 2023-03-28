@@ -17,9 +17,9 @@ body
 
 .nav {  
   background-color: rgb(192, 0, 0);  
-  height:  80px;
   width: 100%;
 }  
+
 label.logo {
   color: white;
   font-size: 20px;
@@ -71,4 +71,11 @@ nav ul li a {
   height: 150px;
   width: 500px;
   padding: 3px;
+}
+
+.stevenslogo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
