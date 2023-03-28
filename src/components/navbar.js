@@ -1,22 +1,15 @@
-import React from "react";
+import { Link } from "react-router-dom"
 
-function NavBar() {
-
-    function handleNavigation(n) {
-        console.log(n)
-    }
- 
+export default function NavBar() {
     return (
-        <nav>
+        <nav className="nav">
             <label className="logo">Stevens Lost & Found Tool</label>
             <ul>
-              <li><button className="navb" onClick={() => handleNavigation('home')}>Home</button></li>
-              <li><button className="navb" onClick={() => handleNavigation('report')}>Report Lost Item</button></li>
-              <li><button className="navb" onClick={() => handleNavigation('find')}>Find an Item</button></li>
-              <li><button className="navb" onClick={() => handleNavigation('about')}>About</button></li>
+              <li><Link className="navb" to="/">Home</Link></li>
+              <li><Link className="navb" to="/report">Report Lost Item</Link></li>
+              <li><Link className="navb" to="/find">Find An Item</Link></li>
+              <li><Link className="navb" to="/about">About</Link></li>
             </ul>
         </nav>
     )
 }
-
-export default NavBar

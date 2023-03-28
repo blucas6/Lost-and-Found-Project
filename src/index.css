@@ -15,7 +15,7 @@ body
   font-family: montserrat;  
 }  
 
-nav {  
+.nav {  
   background-color: rgb(192, 0, 0);  
   height:  80px;
   width: 100%;
@@ -36,7 +36,7 @@ nav ul li {
   line-height: 80px;
   margin: 0 5px;
 }
-nav ul li button.navb {
+nav ul li a {
   background-color: rgb(197, 8, 8);
   color:  white;
   font-size: 17px;
@@ -44,7 +44,31 @@ nav ul li button.navb {
   border-radius:  3px;
   text-transform: uppercase;
 }
-button.navb:active, button.navb:hover {
+.navb:active, .navb:hover {
   background-color: rgb(255, 110, 110);
   transition: 0.5s;
+}
+
+.container {
+  padding-left: 3rem;
+  padding-top: 3rem;
+}
+
+.reportform {
+  padding: 2rem;
+}
+
+.reportform p {
+  padding: 5px;
+}
+
+.reportform input{
+  padding: 3px;
+  width: 250px;
+}
+
+.reportform textarea { 
+  height: 200px;
+  width: 500px;
+  padding: 3px;
 }
