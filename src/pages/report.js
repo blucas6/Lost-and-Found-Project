@@ -15,6 +15,8 @@ export default function ReportPage() {
                 <textarea />
                 <p>Location Found</p>
                 <input />
+                <p>Date Found</p>
+                <input />
                 <p>Time Found</p>
                 <input />
             </form>
