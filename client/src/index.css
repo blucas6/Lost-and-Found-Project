@@ -1,0 +1,100 @@
+*{
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body   
+{  
+  height: 125vh;  
+  margin-top: 0px;  
+  padding: 0px;  
+  background-size: cover;  
+  font-family: Quicksand;  
+}  
+
+.nav {  
+  background-color: rgb(192, 0, 0);  
+  width: 100%;
+}  
+
+label.sitename {
+  color: white;
+  font-size: 20px;
+  line-height: 80px;
+  padding: 0 20px;
+  font-weight: bold;
+}
+nav ul {
+  float: right;
+  margin-right: 20px;
+  margin-left: 10%;
+}
+nav ul li {
+  display:  inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+nav ul li a {
+  background-color: rgb(206, 30, 30);
+  border-style: solid;
+  border-width: 2px;
+  border-color: white;
+  color:  white;
+  font-size: 17px;
+  padding: 7px 13px;
+  border-radius:  3px;
+  text-transform: uppercase;
+}
+.navb:active, .navb:hover {
+  background-color: rgb(255, 110, 110);
+  transition: 0.5s;
+}
+
+.container {
+  padding: 3rem;
+}
+
+.reportform {
+  padding: 2rem;
+}
+
+.reportform p {
+  padding: 5px;
+}
+
+.reportform input{
+  padding: 3px;
+  width: 250px;
+}
+
+.reportform textarea { 
+  height: 150px;
+  width: 500px;
+  padding: 3px;
+}
+
+.reportform button {
+  padding: 3px;
+  margin-top: 20px;
+  font-size: large;
+}
+
+.stevenslogo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
+}
+
+.fastfacts {
+  font-size: x-large;
+  padding: 10px;
+}
+
+.fastfacts li {
+  display: inline;
+  padding: 20px;
+}
