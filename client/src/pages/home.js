@@ -1,11 +1,14 @@
 import stevenslogo from '../images/StevensLogo.png'
+import { useLocation } from 'react-router-dom'
 
-export default function HomePage() {
-    let state="admin"
+const HomePage = () => {
+    const data = useLocation()
+    console.log(data)
+    let creds="student"
     let itemslost = 10
     let openrequests = 2
     let closedrequests = 5
-    if (state === "admin") {
+    if (creds === "admin") {
         return (
             <div>
                 <h1>Analytics</h1>
@@ -27,3 +30,5 @@ export default function HomePage() {
         )
     }
 }
+
+export default HomePage
