@@ -5,7 +5,6 @@ import './home.css'
 
 function generateTable(data, addtodiv) {
     console.log(data)
-    addtodiv.innerHTML = ""
     const tbl = document.createElement('table')
     const tbl_head = document.createElement('thead')
     const tbl_body = document.createElement('tbody')
@@ -48,8 +47,9 @@ export default function HomePage (props) {
     }
     //
     // Database
-    if (props.authed && props.database) {
+    if (props.authed && props.database && document.getElementById("view-requests")) {
         let table = document.getElementById("view-requests")
+        table.innerHTML = ""
         generateTable(props.database, table)
         // console.log(props.database)
         // let table = document.createElement('div')
