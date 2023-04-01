@@ -15,44 +15,6 @@ body
   font-family: Quicksand;  
 }  
 
-.nav {  
-  background-color: rgb(192, 0, 0);  
-  width: 100%;
-}  
-
-label.sitename {
-  color: white;
-  font-size: 20px;
-  line-height: 80px;
-  padding: 0 20px;
-  font-weight: bold;
-}
-nav ul {
-  float: right;
-  margin-right: 20px;
-  margin-left: 10%;
-}
-nav ul li {
-  display:  inline-block;
-  line-height: 80px;
-  margin: 0 5px;
-}
-nav ul li a {
-  background-color: rgb(206, 30, 30);
-  border-style: solid;
-  border-width: 2px;
-  border-color: white;
-  color:  white;
-  font-size: 17px;
-  padding: 7px 13px;
-  border-radius:  3px;
-  text-transform: uppercase;
-}
-.navb:active, .navb:hover {
-  background-color: rgb(255, 110, 110);
-  transition: 0.5s;
-}
-
 .container {
   padding: 3rem;
 }
