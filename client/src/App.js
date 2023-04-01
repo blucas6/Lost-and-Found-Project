@@ -8,10 +8,6 @@ import Navbar from "./components/navbar";
 import Popup from './components/popup'
 import { useState } from "react";
 
-function requireAuth() {
-  console.log("REQUIRING")
-}
-
 function App() {
   const [loginPopup, setLoginPopup] = useState(true)
   const [loggedInUser, setUser] = useState("")
