@@ -14,8 +14,8 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Navbar authed={loggedInUser}/>} >
-        <Route index element={<HomePage authed={loggedInUser}/>} onEnter={requireAuth}/>
-        <Route path="report" element={<ReportPage />} onEnter={requireAuth}/>
+        <Route index element={<HomePage authed={loggedInUser}/>} />
+        <Route path="report" element={<ReportPage />} />
         <Route path="find" element={<FindPage />} />
         <Route path="about" element={<AboutPage />} />
       </Route>
