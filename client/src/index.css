@@ -43,20 +43,3 @@ body
   margin-top: 20px;
   font-size: large;
 }
-
-.stevenslogo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 1000px;
-}
-
-.fastfacts {
-  font-size: x-large;
-  padding: 10px;
-}
-
-.fastfacts li {
-  display: inline;
-  padding: 20px;
-}

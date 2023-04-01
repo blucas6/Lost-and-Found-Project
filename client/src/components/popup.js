@@ -3,15 +3,24 @@ import './popup.css'
 import { useState, useEffect } from 'react'
 import { onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
 import { fb_db, fb_auth } from '../firebase-config'
+import { collection, getDocs } from 'firebase/firestore'
 
 
 export default function Popup(props) {
+    // Data base
+    const table_collection_ref = collection(fb_db, "example")
+    const getRecords = async () => {
+        const data = await getDocs(table_collection_ref);
+        props.setDatabase(data.docs.map((doc) => ({...doc.data(), id: doc.id })))
+    }
+    //
     // Authentication
     useEffect(() => {
         onAuthStateChanged(fb_auth, (currentUser) => {
             props.checkifAuth(currentUser)
             if (currentUser) {
                 props.setTrigger(false)
+                getRecords()        // fetch database
             } else {
                 props.setTrigger(true)
             }
@@ -28,6 +37,7 @@ export default function Popup(props) {
             )
             console.log(user)
             props.setTrigger(false)
+            getRecords()        // fetch database
         } catch (err) {
             console.log(err.message)
         }
@@ -38,7 +48,7 @@ export default function Popup(props) {
             <div className="popup-inner">
                 <div className='popup-header'>
                     <h2>Sign in to continue</h2>
-                    <button className="close-btn" onClick={()=> props.setTrigger(false)}>&times;</button>
+                    {/* <button className="close-btn" onClick={()=> props.setTrigger(false)}>&times;</button> */}
                 </div>
                 <p>Username:</p>
                 <input 

@@ -9,14 +9,15 @@ import Popup from './components/popup'
 import { useState } from "react";
 
 function App() {
-  const [loginPopup, setLoginPopup] = useState(true)
-  const [loggedInUser, setUser] = useState("")
+  const [table, setTableState] = useState()             // all lost & found requests table
+  const [loginPopup, setLoginPopup] = useState(true)    // pop up window
+  const [loggedInUser, setUser] = useState("")          // state of user
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Navbar authed={loggedInUser}/>} >
-        <Route index element={<HomePage authed={loggedInUser}/>} />
-        <Route path="report" element={<ReportPage />} />
-        <Route path="find" element={<FindPage />} />
+        <Route index element={<HomePage authed={loggedInUser} database={table} />} />
+        <Route path="report" element={<ReportPage authed={loggedInUser}/>} />
+        <Route path="find" element={<FindPage authed={loggedInUser}/>} />
         <Route path="about" element={<AboutPage />} />
       </Route>
     )
@@ -25,7 +26,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <Popup trigger={loginPopup} setTrigger={setLoginPopup} checkifAuth={setUser} />
+      <Popup trigger={loginPopup} setTrigger={setLoginPopup} checkifAuth={setUser} setDatabase={setTableState} />
       <RouterProvider router={router} />
       </header>
     </div>
