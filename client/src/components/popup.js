@@ -10,6 +10,7 @@ export default function Popup(props) {
     // Data base
     const table_collection_ref = collection(fb_db, "example")
     const getRecords = async () => {
+        console.log("GET FROM DATABASE")
         const data = await getDocs(table_collection_ref);
         props.setDatabase(data.docs.map((doc) => ({...doc.data(), id: doc.id })))
     }

@@ -2,22 +2,30 @@ import stevenslogo from '../images/StevensLogo.png'
 import { signOut } from 'firebase/auth';
 import { fb_auth } from '../firebase-config';
 import './home.css'
+import { useEffect } from 'react';
 
-function generateTable(data, addtodiv) {
+function generateTable(data, addtodiv, autoHeaders) {
     console.log(data)
+    const date_header_name = "dateFound"
+    const date_header_name2 = "submissionDate"
     const tbl = document.createElement('table')
     const tbl_head = document.createElement('thead')
     const tbl_body = document.createElement('tbody')
     const hrow = document.createElement('tr')
-    const headers = []
-    for (const skey in data[0]) {
+    var headers = []
+    if (autoHeaders) {
+        for (const skey in data[0]) {
+            headers.push(skey)
+        }
+    } else {
+        headers = ["status", "firstname", "lastname", "email", "object", "description", "locationFound", "dateFound", "submissionDate", "ownerFname", "ownerLname", "ownerEmail"]
+    }
+    for (let head in headers) {
         const hcell = document.createElement('td')
-        const cellText = document.createTextNode(skey)
+        const cellText = document.createTextNode(headers[head])
         hcell.appendChild(cellText)
         hrow.appendChild(hcell)
-        headers.push(skey)
     }
-    console.log(headers)
     tbl_head.appendChild(hrow)
     tbl.appendChild(tbl_head)
     for (const key in data) {
@@ -25,9 +33,14 @@ function generateTable(data, addtodiv) {
         for (let h in headers) {
             const cell = document.createElement('td')
             var cellText = document.createTextNode("")
-            if (headers[h] === "datetime") {
-                var date = new Date(data[key][headers[h]].seconds)
+            if (headers[h] === date_header_name || headers[h] === date_header_name2) {
+                if (headers[h] === date_header_name) {
+                    var date = new Date(1000*(data[key][headers[h]].seconds))
+                } else {
+                    var date = new Date(1000*(data[key][headers[h]]))
+                }
                 cellText = document.createTextNode(date)
+                console.log(date)
             } else {
                 cellText = document.createTextNode(data[key][headers[h]])
             }
@@ -47,26 +60,14 @@ export default function HomePage (props) {
     }
     //
     // Database
-    if (props.authed && props.database && document.getElementById("view-requests")) {
-        let table = document.getElementById("view-requests")
-        table.innerHTML = ""
-        generateTable(props.database, table)
-        // console.log(props.database)
-        // let table = document.createElement('div')
-        // let list = document.getElementById("view-requests")
-        // list.innerHTML = ""
-        // for (const key in props.database) {
-        //     // console.log(key, props.database[key])
-        //     let li = document.createElement('li')
-        //     let data_str = ""
-        //     for (const skey in props.database[key]) {
-        //         // console.log(props.database[key][skey])
-        //         data_str = data_str + skey + ": " + props.database[key][skey] + " "
-        //     }
-        //     li.innerText = data_str
-        //     list.appendChild(li)
-        // }
-    }
+    useEffect(() => {   //on load
+        // console.log(`Authed: ${props.authed} Database: ${props.database} Element: ${document.getElementById("view-requests")}`)
+        if (props.authed && props.database && document.getElementById("view-requests")) {
+            let table = document.getElementById("view-requests")
+            table.innerHTML = ""
+            generateTable(props.database, table, false)
+        }
+    })
     //
 
     if (props.authed) {
@@ -76,7 +77,7 @@ export default function HomePage (props) {
                     <p>Logged in as: {props.authed?.email}</p>
                     <button onClick={logOut}>Sign Out</button>
                 </div>
-                <h1>View Requests</h1>
+                <h1>View Reports</h1>
                 <br></br>
                 <div className='view'>
                     <div id="view-requests"></div>
