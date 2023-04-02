@@ -1,3 +1,5 @@
+import './report.css'
+
 export default function ReportPage(props) {
     if (props.authed) {
         return (

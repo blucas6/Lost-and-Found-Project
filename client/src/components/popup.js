@@ -47,7 +47,7 @@ export default function Popup(props) {
         <div className="popup">
             <div className="popup-inner">
                 <div className='popup-header'>
-                    <h2>Sign in to continue</h2>
+                    <h2>Sign In</h2>
                     {/* <button className="close-btn" onClick={()=> props.setTrigger(false)}>&times;</button> */}
                 </div>
                 <p>Username:</p>
