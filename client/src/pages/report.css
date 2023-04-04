@@ -1,0 +1,48 @@
+.reportform {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    margin: 0 auto;
+    background-color: #A32638;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #363D45;
+  }
+  
+  .reportform p {
+    text-align: left;
+    color: #fff;
+  }
+  
+  .reportform input[type=text], .reportform input[type=email], .reportform input[type=date], .reportform input[type=time], .reportform textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+  }
+  
+  .reportform button {
+    display: block;
+    margin: 0 auto;
+    background-color: #004380;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    align-items: center;
+  }
+  
+  .reportform button:hover {
+    background-color: #4896CF;
+  }
+  

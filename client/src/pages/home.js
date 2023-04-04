@@ -1,10 +1,11 @@
 import stevenslogo from '../images/StevensLogo.png'
 import { signOut } from 'firebase/auth';
 import { fb_auth } from '../firebase-config';
+import { useState } from 'react';
 import './home.css'
 import { useEffect } from 'react';
 
-function generateTable(data, addtodiv, autoHeaders) {
+function generateTable(data, addtodiv, autoHeaders, statusFilter) {
     console.log(data)
     const date_header_name = "dateFound"
     const date_header_name2 = "submissionDate"
@@ -29,31 +30,33 @@ function generateTable(data, addtodiv, autoHeaders) {
     tbl_head.appendChild(hrow)
     tbl.appendChild(tbl_head)
     for (const key in data) {
-        const row = document.createElement('tr')
-        for (let h in headers) {
-            const cell = document.createElement('td')
-            var cellText = document.createTextNode("")
-            if (headers[h] === date_header_name || headers[h] === date_header_name2) {
+        if (statusFilter === "all" || data[key]["status"] === statusFilter) {
+            const row = document.createElement('tr')
+            for (let h in headers) {
+                const cell = document.createElement('td')
+                var cellText = document.createTextNode("")
                 if (headers[h] === date_header_name) {
-                    var date = new Date(1000*(data[key][headers[h]].seconds))
+                    var date = new Date(1000*data[key][headers[h]].seconds)
+                    cellText = document.createTextNode(date)
+                } else if(headers[h] === date_header_name2) {
+                    var date = new Date(data[key][headers[h]])
+                    cellText = document.createTextNode(date)
                 } else {
-                    var date = new Date(1000*(data[key][headers[h]]))
+                    cellText = document.createTextNode(data[key][headers[h]])
                 }
-                cellText = document.createTextNode(date)
-                console.log(date)
-            } else {
-                cellText = document.createTextNode(data[key][headers[h]])
+                cell.appendChild(cellText)
+                row.appendChild(cell)
             }
-            cell.appendChild(cellText)
-            row.appendChild(cell)
+            tbl_body.appendChild(row)
         }
-        tbl_body.appendChild(row)
     }
     tbl.appendChild(tbl_body)
     addtodiv.appendChild(tbl)
 }
 
 export default function HomePage (props) {
+    const [statusFilter, setStatusFilter] = useState("all");
+
     // Log out of Admin
     const logOut = async() => {
         await signOut(fb_auth)
@@ -65,7 +68,7 @@ export default function HomePage (props) {
         if (props.authed && props.database && document.getElementById("view-requests")) {
             let table = document.getElementById("view-requests")
             table.innerHTML = ""
-            generateTable(props.database, table, false)
+            generateTable(props.database, table, false, statusFilter)
         }
     })
     //
@@ -80,6 +83,14 @@ export default function HomePage (props) {
                 <h1>View Reports</h1>
                 <br></br>
                 <div className='view'>
+                    <div className='filter'>
+                        <label htmlFor="statusFilter">Filter by Status:</label>
+                        <select id="statusFilter" onChange={(e) => setStatusFilter(e.target.value)}>
+                            <option value="all">All</option>
+                            <option value="open">Open</option>
+                            <option value="closed">Closed</option>
+                        </select>
+                    </div>
                     <div id="view-requests"></div>
                 </div>
             </div>
@@ -97,3 +108,6 @@ export default function HomePage (props) {
         )
     }
 }
+
+
+                           

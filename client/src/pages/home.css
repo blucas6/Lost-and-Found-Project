@@ -1,7 +1,11 @@
 .login-desc {
-    display: flex;
-    align-items: center;
-    padding-bottom: 50px;
+  display: flex;
+  align-items: center;
+  padding-bottom: 50px;
+  background-color: #E4E5E6;
+  padding: 20px;
+  font-family: 'Saira', sans-serif;
+  font-weight: 400;
 }
 
 .login-desc button {
@@ -34,7 +38,7 @@
   }
 
   table thead tr {
-    background-color: #ff2c2c;
+    background-color: #A32638;
     color: white;
     text-align: left;
     font-weight: bold;
@@ -54,5 +58,9 @@
   }
 
   table tbody tr:last-of-type {
-    border-bottom: 2px solid #ff2c2c;
+    border-bottom: 2px solid #A32638;
   }
+
+
+  
+

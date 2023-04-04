@@ -5,7 +5,7 @@ export default function Navbar(props) {
     return (
         <div>
         <nav className="nav">
-        <label className="sitename">Stevens Lost & Found Tool</label>
+        <label className="sitename">Stevens Lost & Found Service</label>
         <ul>
           <li><NavLink className="navb" to="/">Home</NavLink></li>
           <li><NavLink className="navb" to="/report">Report Lost Item</NavLink></li>

@@ -4,6 +4,7 @@ import 'react-datepicker/dist/react-datepicker.css'
 import { collection, addDoc } from 'firebase/firestore'
 import { fb_db } from "../firebase-config"
 import { useAlert } from 'react-alert'
+import './report.css'
 
 export default function ReportPage(props) {
     // Alert
