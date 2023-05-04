@@ -1,0 +1,65 @@
+.updateForm {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 0px 10px 50px 15px;
+    z-index: 1000;
+    border-radius: 30px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.7);
+}
+
+li {
+    padding: 5px;
+    font-size: x-large;
+}
+
+.form-space input {
+    font-size: medium;
+    border-width: 1px;
+    border-radius: 3px;
+    padding: 3px 0px 3px 5px;
+    margin-bottom: 10px;
+    width: 500px;
+}
+
+.form-space p {
+    font-size: large;
+    font-weight: bold;
+}
+
+.close-btn {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 24px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.close-btn button {
+    background-color: transparent;
+    border: none;
+    font-size: 50px;
+    cursor: pointer;
+    padding-top: 0px;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.submit-btn {
+    padding: 10px;
+    font-size: large;
+}
